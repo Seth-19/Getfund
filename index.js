@@ -8,21 +8,21 @@ function displayItems() {
     const listItem = document.createElement('li');
     listItem.textContent = `${item.contract} - ${item.contractor} - ${item.assignedTo} - ${item.date}`;
 
-    // // Add delete button to each list item
-    // const deleteButton = document.createElement('button');
-    // deleteButton.textContent = 'Delete';
-    // listItem.appendChild(deleteButton);
+    // Add delete button to each list item
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    listItem.appendChild(deleteButton);
 
-    // deleteButton.addEventListener('click', () => {
-    //   // Remove the item from localStorage
-    //   const items = JSON.parse(localStorage.getItem('items'));
-    //   const index = items.findIndex(i => i.contract === item.contract);
-    //   items.splice(index, 1);
-    //   localStorage.setItem('items', JSON.stringify(items));
+    deleteButton.addEventListener('click', () => {
+      // Remove the item from localStorage
+      const items = JSON.parse(localStorage.getItem('items'));
+      const index = items.findIndex(i => i.contract === item.contract);
+      items.splice(index, 1);
+      localStorage.setItem('items', JSON.stringify(items));
 
-    //   // Remove the list item from the DOM
-    //   listItem.remove();
-    // });
+      // Remove the list item from the DOM
+      listItem.remove();
+    });
 
     list.appendChild(listItem);
   });
